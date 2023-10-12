@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Diagnostics;
 using System.IO;
+using Microsoft.VisualBasic;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -17,10 +18,12 @@ namespace SimpleFileManager
         private string filePath = "C:\\/Users/User/Downloads";
         private bool isFile = false;
         private string currentlySelectedItemName = "";
+        private string tempFilePath = "";
         public Form1()
         {
             InitializeComponent();
         }
+
 
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -31,7 +34,6 @@ namespace SimpleFileManager
         public void loadFilesAndDirectories()
         {
             DirectoryInfo fileList;
-            string tempFilePath = "";
             FileAttributes fileAttr;
             try
             {
@@ -43,7 +45,6 @@ namespace SimpleFileManager
                     fileNameLabel.Text = fileDetails.Name;
                     fileTypeLabel.Text = fileDetails.Extension;
                     fileAttr = File.GetAttributes(tempFilePath);
-                    Process.Start(tempFilePath);
                 }
                 else
                 {
@@ -165,6 +166,25 @@ namespace SimpleFileManager
         private void buttonDel_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            string dest = filePath + "/" + Interaction.InputBox("Question?","Title","Default Text");
+
+            try
+            {
+                File.Move(tempFilePath, dest);
+
+                if (!File.Exists(tempFilePath))
+                {
+                    Console.WriteLine("File successfully renamed.");
+                }
+            }
+            catch (IOException)
+            {
+                Console.WriteLine("The renaming failed: {0}", e.ToString());
+            }
         }
     }
 }

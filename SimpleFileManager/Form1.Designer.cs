@@ -36,6 +36,7 @@
             this.fileNameLabel = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.fileTypeLabel = new System.Windows.Forms.Label();
+            this.ButtonRename = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // backButton
@@ -121,11 +122,22 @@
             this.fileTypeLabel.TabIndex = 7;
             this.fileTypeLabel.Text = "--";
             // 
+            // ButtonRename
+            // 
+            this.ButtonRename.Location = new System.Drawing.Point(887, 491);
+            this.ButtonRename.Name = "ButtonRename";
+            this.ButtonRename.Size = new System.Drawing.Size(75, 23);
+            this.ButtonRename.TabIndex = 8;
+            this.ButtonRename.Text = "Rename";
+            this.ButtonRename.UseVisualStyleBackColor = true;
+            this.ButtonRename.Click += new System.EventHandler(this.button1_Click_1);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(974, 529);
+            this.Controls.Add(this.ButtonRename);
             this.Controls.Add(this.fileTypeLabel);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.fileNameLabel);
@@ -153,6 +165,7 @@
         private System.Windows.Forms.Label fileNameLabel;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label fileTypeLabel;
+        private System.Windows.Forms.Button ButtonRename;
     }
 }
 
